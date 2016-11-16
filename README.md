@@ -43,3 +43,26 @@
   - 4 Request Complete
 
   `onreadystatechange`
+
+## Detect Ajax Requests
+
+```
+// JavaScript
+xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+```
+
+```
+// PHP
+function is_ajax_request() {
+	return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest';
+}
+
+if(is_ajax_request()) {
+	echo "Ajax response";
+} else {
+	echo 'Non-Ajax response';
+}
+```
+
+### Note
+ The headers are not secure, can be spoofed.
