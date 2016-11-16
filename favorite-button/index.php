@@ -1,7 +1,8 @@
 <?php
 	session_start();
-
-	!isset($_SESSION['Favorites']) ? $_SESSION['Favorites'] = [] : '';
+    // destroy the session
+	// $_SESSION['favorite'] = [];
+	!isset($_SESSION['favorite']) ? $_SESSION['favorite'] = [] : '';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +11,10 @@
 	<title>Favorites</title>
 </head>
 <body>
+	<?php 
+		// debug
+		echo join(', ', $_SESSION['favorite']);
+	?>
 	<div id="blog-posts">
 		<div id="blog-post-101" class="blog-post">
 			<h3>Blog Post 101</h3>
