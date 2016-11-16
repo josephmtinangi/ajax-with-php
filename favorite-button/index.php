@@ -14,6 +14,18 @@
 	<meta charset="UTF-8">
 	<title>Favorites</title>
 	<style>
+		button.favorite-button {
+			display: inline;
+		}
+		.favorite button.favorite-button {
+			display: none;
+		}
+		button.unfavorite-button {
+			display: none;
+		}
+		.favorite button.unfavorite-button {
+			display: inline;
+		}		
 		.favorite-heart {
 			color: red;
 			font-size: 2em;
