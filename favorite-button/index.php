@@ -39,12 +39,20 @@
 			<p>
 				Nano-plastic Shibuya denim grenade chrome render-farm BASE jump franchise Chiba youtube advert 8-bit assassin. Towards disposable kanji vinyl paranoid hacker San Francisco order-flow. Meta-industrial grade systemic neural free-market car drone dolphin carbon. Hacker table network spook grenade convenience store dolphin savant. Film geodesic wristwatch corporation rebar hacker render-farm drugs computer euro-pop uplink RAF nodal point urban sub-orbital gang. Faded chrome singularity BASE jump disposable denim kanji film semiotics-ware camera assault boy youtube systema. Crypto-media city lights numinous narrative realism jeans film order-flow tank-traps BASE jump dissident bomb. 
 			</p>
-			<button class="favorite">Favorite</button>
+			<button class="favorite-button">Favorite</button>
 		</div>
 	</div>
 
 	<script>
-		
+		function favorite() {
+			alert('clicked');
+		}
+
+		var buttons = document.getElementByClassName("favorite-button");
+		for(i=0; i < buttons.length; i++) {
+			buttons.item(i).addEventListener("click", favorite);
+		}
+
 	</script>
 
 </body>
