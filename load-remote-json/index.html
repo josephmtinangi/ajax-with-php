@@ -16,7 +16,18 @@
 	</div>
 
 	<script>
-		
+		var api = 'http://maps.googleapis.com/maps/api/geocode/json';
+
+		function findLocation() {
+			alert('it works');
+		}
+
+		function outputLocation(data) {
+
+		}
+
+		var button = document.getElementById("ajax-button");
+		button.addEventListener("click", findLocation);
 	</script>
 </body>
 </html>
