@@ -24,7 +24,16 @@
 
 			var cat_id = cat_select.options[cat_select.selectedIndex].value;
 
-			console.log(cat_id);
+			var url = "/subcategories.php?category_id=" + cat_id;
+
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', url, true);
+			xhr.onreadystatechange = function() {
+				if(xhr.readyState == 4 && xhr.status == 200) {
+					subcat_select.innerHTML = xhr.responseText;
+				}
+			};
+			xhr.send();
 		}
 
 		var cat_select = document.getElementById("category-select");
