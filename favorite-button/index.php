@@ -41,6 +41,7 @@
 			DIY sensory carbon assassin cartel Tokyo post-Shibuya sprawl wonton soup footage human free-market monofilament order-flow Chiba. Corrupted apophenia shrine nodality plastic dome Chiba shoes girl shanty town weathered refrigerator skyscraper youtube cyber-tattoo. Futurity faded tank-traps cartel franchise post-refrigerator engine shrine. 
 		</p>
 		<button class="favorite-button">Favorite</button>
+		<button class="unfavorite-button">Unfavorite</button>
 		</div>
 		<div id="blog-post-102" class="blog-post <?php if(is_favorite(101)) echo 'favorite';?>">
 			<span class="favorite-heart">&hearts;</span>
@@ -52,6 +53,7 @@
 				Table nano-boy disposable sprawl computer bicycle neon convenience store. Office pistol 3D-printed industrial grade convenience store corrupted geodesic soul-delay towards faded narrative dome. Disposable wristwatch crypto-human table sprawl franchise monofilament car into vehicle courier. Sign sentient table carbon market cardboard Chiba dissident shrine post-stimulate range-rover. 
 			</p>
 			<button class="favorite-button">Favorite</button>
+			<button class="unfavorite-button">Unfavorite</button>
 		</div>
 		<div id="blog-post-103" class="blog-post <?php if(is_favorite(101)) echo 'favorite';?>">
 			<span class="favorite-heart">&hearts;</span>
@@ -63,6 +65,7 @@
 				Nano-plastic Shibuya denim grenade chrome render-farm BASE jump franchise Chiba youtube advert 8-bit assassin. Towards disposable kanji vinyl paranoid hacker San Francisco order-flow. Meta-industrial grade systemic neural free-market car drone dolphin carbon. Hacker table network spook grenade convenience store dolphin savant. Film geodesic wristwatch corporation rebar hacker render-farm drugs computer euro-pop uplink RAF nodal point urban sub-orbital gang. Faded chrome singularity BASE jump disposable denim kanji film semiotics-ware camera assault boy youtube systema. Crypto-media city lights numinous narrative realism jeans film order-flow tank-traps BASE jump dissident bomb. 
 			</p>
 			<button class="favorite-button">Favorite</button>
+			<button class="unfavorite-button">Unfavorite</button>
 		</div>
 	</div>
 
@@ -90,7 +93,29 @@
 		for(i=0; i < buttons.length; i++) {
 			buttons.item(i).addEventListener("click", favorite);
 		}
+		function unfavorite() {
+			var parent = this.parentElement;
 
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', '/unfavorite.php', true);
+			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+			xhr.onreadystatechange = function() {
+				if(xhr.readyState == 4 && xhr.status == 200) {
+					var result = xhr.responseText;
+					console.log("Result: " + result);
+					if (result == 'true') {
+						parent.classList.remove("favorite");
+					}
+				}
+			};
+			xhr.send("id=" + parent.id);
+		}
+
+		var buttons = document.getElementsByClassName('unfavorite-button');
+		for(i=0; i < buttons.length; i++) {
+			buttons.item(i).addEventListener("click", unfavorite);
+		}
 	</script>
 
 </body>
