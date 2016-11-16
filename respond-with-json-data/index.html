@@ -23,7 +23,7 @@
 				}
 				if(xhr.readyState == 4 && xhr.status == 200) {
 					var json = JSON.parse(xhr.responseText);
-					target.innerHTML = xhr.responseText;
+					target.innerHTML = json.bio;
 				}
 			}
 			xhr.send();
