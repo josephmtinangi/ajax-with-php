@@ -20,6 +20,7 @@
 
 		function findLocation() {
 			var zipcode = document.getElementById('zipcode');
+			var url = api + '?address=' + zipcode.value();
 		}
 
 		function outputLocation(data) {
