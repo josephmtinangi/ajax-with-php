@@ -20,8 +20,7 @@
 
 		function findLocation() {
 			var zipcode = document.getElementById('zipcode');
-			var url = api + '?address=' + zipcode.value();
-
+			var url = api + '?address=' + zipcode.value;
 			var xhr = new XMLHttpRequest();
 			xhr.open('GET', url, true);
 			xhr.onreadystatechange = function () {
@@ -32,7 +31,7 @@
 					outputLocation(xhr.responseText);
 				}
 			};
-			xhr.send();
+			xhr.send();			
 		}
 
 		function showLoading() {
@@ -43,6 +42,8 @@
 		function outputLocation(data) {
 			var target = document.getElementById('location');
 			var json = JSON.parse(data);
+			var address = json.results[0].formatted_address;
+			target.innerHTML = address;
 		}
 
 		var button = document.getElementById("ajax-button");
