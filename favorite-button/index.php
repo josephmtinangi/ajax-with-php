@@ -45,10 +45,19 @@
 
 	<script>
 		function favorite() {
-			alert('clicked');
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', '/favorite.php', true);
+			xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+			xhr.onreadystatechange = function() {
+				if(xhr.readyState == 4 && xhr.status == 200) {
+					var result = xhr.responseText;
+					console.log("Result: " + result);
+				}
+			};
+			xhr.send();
 		}
 
-		var buttons = document.getElementByClassName("favorite-button");
+		var buttons = document.getElementsByClassName('favorite-button');
 		for(i=0; i < buttons.length; i++) {
 			buttons.item(i).addEventListener("click", favorite);
 		}
