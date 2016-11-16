@@ -1,0 +1,11 @@
+{
+    "name": "joseph/ajax-with-php",
+    "description": "How to work with Ajax and PHP",
+    "authors": [
+        {
+            "name": "Joseph Mtinangi",
+            "email": "josephmtinangi@gmail.com"
+        }
+    ],
+    "require": {}
+}
