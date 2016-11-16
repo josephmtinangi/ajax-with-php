@@ -3,6 +3,10 @@
     // destroy the session
 	// $_SESSION['favorite'] = [];
 	!isset($_SESSION['favorite']) ? $_SESSION['favorite'] = [] : '';
+
+	function is_favorite($id) {
+		return in_array($id, $_SESSION['favorite']);
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +31,7 @@
 		// echo join(', ', $_SESSION['favorite']);
 	?>
 	<div id="blog-posts">
-		<div id="blog-post-101" class="blog-post">
+		<div id="blog-post-101" class="blog-post <?php if(is_favorite(101)) echo 'favorite';?>">
 			<span class="favorite-heart">&hearts;</span>
 			<h3>Blog Post 101</h3>
 		<p>
@@ -38,7 +42,7 @@
 		</p>
 		<button class="favorite-button">Favorite</button>
 		</div>
-		<div id="blog-post-102" class="blog-post">
+		<div id="blog-post-102" class="blog-post <?php if(is_favorite(101)) echo 'favorite';?>">
 			<span class="favorite-heart">&hearts;</span>
 			<h3>Blog Post 102</h3>
 			<p>
@@ -49,7 +53,7 @@
 			</p>
 			<button class="favorite-button">Favorite</button>
 		</div>
-		<div id="blog-post-103" class="blog-post">
+		<div id="blog-post-103" class="blog-post <?php if(is_favorite(101)) echo 'favorite';?>">
 			<span class="favorite-heart">&hearts;</span>
 			<h3>Blog Post 103</h3>
 			<p>
