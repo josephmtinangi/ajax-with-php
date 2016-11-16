@@ -45,6 +45,8 @@
 
 	<script>
 		function favorite() {
+			var parent = this.parentElement;
+			
 			var xhr = new XMLHttpRequest();
 			xhr.open('GET', '/favorite.php', true);
 			xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
