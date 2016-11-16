@@ -1,4 +1,4 @@
 <?php
 $var = 'new content';
 ?>
-This is the <?= $var;?> which has been loaded by Ajax.
+<span style="color: blue;">This is the <strong><?= $var;?></strong> which has been loaded by Ajax.</span>
