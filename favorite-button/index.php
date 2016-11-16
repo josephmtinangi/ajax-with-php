@@ -60,6 +60,9 @@
 				if(xhr.readyState == 4 && xhr.status == 200) {
 					var result = xhr.responseText;
 					console.log("Result: " + result);
+					if (result == 'true') {
+						parent.classList.add("favorite");
+					}
 				}
 			};
 			xhr.send("id=" + parent.id);
