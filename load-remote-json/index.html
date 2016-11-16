@@ -43,7 +43,7 @@
 			var target = document.getElementById('location');
 			var json = JSON.parse(data);
 			var address = json.results[0].formatted_address;
-			target.innerHTML = address;
+			target.innerHTML = '<strong>' + address + '</strong>';
 		}
 
 		var button = document.getElementById("ajax-button");
