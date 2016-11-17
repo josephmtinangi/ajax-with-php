@@ -44,19 +44,30 @@
 			result_div.style.display = 'none';
 		}
 
+		function gatherFormData(form) {
+			var inputs = form.getElementsByTagName('input');
+			var array = [];
+
+			for(i=0; i < inputs.length; i++) {
+				var inputNameValue = inputs[i].name + '=' + inputs[i].value;
+				array.push(inputNameValue);
+			}
+			return array.join('&');
+		}
+
 		function calculateMeasurements() {
 			clearResult();
 
 			var form = document.getElementById("measurement-form");
 			var action = form.getAttribute("action");
 
-			// determine form actionn
 			// gather form data
+			var form_data = gatherFormData(form);
 
-			var xhr = new XMLHttpRequst();
+			var xhr = new XMLHttpRequest();
 			xhr.open('POST', action, true);
-			xhr.sendRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-			xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequst');
+			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 			xhr.onreadystatechange = function() {
 				if (xhr.readyState == 4 && xhr.status == 200) {
 					var result = xhr.responseText;
@@ -66,6 +77,9 @@
 			};
 			xhr.send(form_data);
 		}
+
+		var button = document.getElementById("ajax-submit");
+		button.addEventListener("click", calculateMeasurements);
 
 	</script>
 
